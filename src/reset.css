@@ -43,4 +43,10 @@ table {
 }
 *{
   box-sizing: border-box;
+	outline:none;
+}
+button{
+	border:none;
+	background:transparent;
+	cursor:pointer;
 }

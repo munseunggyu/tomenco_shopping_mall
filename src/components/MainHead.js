@@ -16,9 +16,7 @@ z-index:5;
   button{
     font-size: 18px;
     font-weight:700;
-    background:transparent;
-    border:none;
-    cursor:pointer;
+
   }
 
 `
