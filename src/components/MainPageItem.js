@@ -7,11 +7,11 @@ const MainPageItemBlock = styled.div`
   padding-right:1.5rem;
   padding-left:1.5rem;  
   margin-bottom:40px;
-  .main__item{
     img{
       width:100%;
       height:204px;
       margin-bottom:12px;
+      border-radius:5px 5px 0 0;
     }
     h3{
       font-size:1.1rem;
@@ -21,20 +21,16 @@ const MainPageItemBlock = styled.div`
     p{
       word-break: keep-all;
     }
-
-  }
 `;
 
 function MainPageItem(){
   return(
     <MainPageItemBlock>
-      <div className='main__item'>
         <img src={test} alt="img" /> 
         <h3>인증샷을 부르는 춘식이 유리컵</h3>
         <p>안정감있게 쌓을 수 있는 실용적인 
           디자인에 귀여운 춘식이를 더한, 금주의 추천 선물이에요
         </p>
-      </div>
     </MainPageItemBlock>
   )
 }
