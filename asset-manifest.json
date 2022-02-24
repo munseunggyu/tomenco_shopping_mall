@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tomenco_shopping_mall/static/css/main.cf453509.css",
+    "main.js": "/tomenco_shopping_mall/static/js/main.d76b9aa0.js",
+    "index.html": "/tomenco_shopping_mall/index.html",
+    "main.cf453509.css.map": "/tomenco_shopping_mall/static/css/main.cf453509.css.map",
+    "main.d76b9aa0.js.map": "/tomenco_shopping_mall/static/js/main.d76b9aa0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf453509.css",
+    "static/js/main.d76b9aa0.js"
+  ]
+}
