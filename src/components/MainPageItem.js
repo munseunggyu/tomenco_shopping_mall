@@ -9,7 +9,7 @@ const MainPageItemBlock = styled.div`
   margin-bottom:40px;
     img{
       width:100%;
-      height:204px;
+      height:240px;
       margin-bottom:12px;
       border-radius:5px 5px 0 0;
     }
