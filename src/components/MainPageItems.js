@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import test from '../test.jpeg'
+import {Link,useHistory,useParams} from 'react-router-dom';
 
-const MainPageItemBlock = styled.div`
+const MainPageItemBlock = styled.li`
   padding-top:43px;
   padding-right:1.5rem;
   padding-left:1.5rem;  
@@ -23,10 +24,16 @@ const MainPageItemBlock = styled.div`
     }
 `;
 
-function MainPageItem(){
+function MainPageItem({id}){    // 아이디값을 받아와서 연결해준다
+  const history = useHistory();
+
   return(
     <MainPageItemBlock>
-        <img src={test} alt="img" /> 
+        <img
+          onClick={()=>{
+            history.push(`detail/${id}`); //해당 페이지로 보내준다
+          }}
+        src={test} alt="img" /> 
         <h3>인증샷을 부르는 춘식이 유리컵</h3>
         <p>안정감있게 쌓을 수 있는 실용적인 
           디자인에 귀여운 춘식이를 더한, 금주의 추천 선물이에요
@@ -38,13 +45,15 @@ function MainPageItem(){
 function MainPageItems(){
   const MainItemList = [1,2,3,4]
   return (
-    <>
+    <ul>
     {
       MainItemList.map((a,i) => {
-        return <MainPageItem key={i} />
+        return (
+          <MainPageItem key={i} id={a}   />
+        )
       })
     }
-    </>
+    </ul>
   )
 }
 

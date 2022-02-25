@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MainHead from '../components/MainHead';
 import test from '../test.jpeg';
 import Goback from '../components/Goback';
-
+import ItemDetail from '../components/ItemDetail';
 
 
 function Detail(){
@@ -11,6 +11,7 @@ function Detail(){
     <>
       <MainHead />
       <Goback />
+      <ItemDetail />
     </>
   )
 }

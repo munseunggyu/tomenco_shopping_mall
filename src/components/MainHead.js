@@ -13,8 +13,9 @@ top: 0;
 width: 100%;
 border-bottom: 1px solid #EEEEEE;
 background:white;
+z-index:5;
   button{
-    font-size: 1.2rem;
+    font-size: 18px;
     font-weight:700;
 
   }
