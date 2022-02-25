@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled,{css} from 'styled-components';
 import test from '../test.jpeg';
 
 const ItemPriceBlock = styled.div`
@@ -21,6 +21,29 @@ const ItemPriceBlock = styled.div`
     color:rgba(0, 0, 0, 0.7);
   }
 `;
+const ItemButtonBlock = styled.div`
+  border-top:1px solid #EEEEEE;
+  border-bottom:1px solid #EEEEEE;
+  display:flex;
+  button{
+    width:50%;
+    font-size:1.1rem;
+    font-weight:700;
+    padding-top:14px;
+    padding-bottom:14px;  
+  }
+  .button_left{
+    ${({changeColor}) =>{
+      return changeColor ? `background:white` : `background:#EEEEEE`
+    }}
+    }
+  }
+  .button_right{
+    ${({changeColor}) => {
+      return changeColor ? `background:#EEEEEE` : `background:white`
+    }}
+  }
+`
 
 
 function ItemPrice(){
@@ -35,11 +58,25 @@ function ItemPrice(){
 
 
 function ItemDetail(){
+  const [a,setA] = useState(true);
+  const Descript = () => {
+    setA(true)
+  }
+  const Reivew = () => {
+    setA(false)
+  }
   return(
     <>
       <ItemPrice />
+      <ItemButtonBlock changeColor={a}>
+        <button onClick={Descript} className="button_left">상품 설명</button>
+        <button onClick={Reivew} className="button_right">상품 후기</button>
+      </ItemButtonBlock>
+      
     </>
   )
 }
+
+
 
 export default ItemDetail;
