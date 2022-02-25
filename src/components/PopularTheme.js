@@ -33,8 +33,8 @@ function PopularTheme(){
         spaceBetween={30}
       > 
       {
-        themeList.map(() => {
-          return <SwiperSlide> <button>#겨울 끝장템</button> </SwiperSlide>
+        themeList.map((a,i) => {
+          return <SwiperSlide key={i}> <button>#겨울 끝장템</button> </SwiperSlide>
         })
       }
       </Swiper>

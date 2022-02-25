@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Route,Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const MainHeadBlock = styled.div`
@@ -13,9 +13,8 @@ top: 0;
 width: 100%;
 border-bottom: 1px solid #EEEEEE;
 background:white;
-z-index:5;
   button{
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight:700;
 
   }
@@ -23,11 +22,13 @@ z-index:5;
 
 function MainHead(){
   return(
-    <Link to="/">
+    
       <MainHeadBlock>
-        <button>토멘코 쇼핑</button>
+        <Link to="/">
+          <button>토멘코 쇼핑</button>
+        </Link>
       </MainHeadBlock>
-    </Link> 
+   
   )
 }
 

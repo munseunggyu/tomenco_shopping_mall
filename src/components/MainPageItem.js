@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import test from '../test.jpeg';
+import test from '../test.jpeg'
 
 const MainPageItemBlock = styled.div`
   padding-top:43px;
@@ -40,8 +40,8 @@ function MainPageItems(){
   return (
     <>
     {
-      MainItemList.map(() => {
-        return <MainPageItem />
+      MainItemList.map((a,i) => {
+        return <MainPageItem key={i} />
       })
     }
     </>
