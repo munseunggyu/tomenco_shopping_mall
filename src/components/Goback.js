@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const GobackBlock = styled.button`
   z-index:5;
   position:fixed;
-  padding-top: 20px;
+  padding-top: 21px;
   top:0;
   font-size:18px;
   font-weight:700;

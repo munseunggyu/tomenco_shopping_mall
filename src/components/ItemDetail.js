@@ -87,13 +87,13 @@ function ItemReview(){
 return(
   <ItemReviewBlock>
     <li>
-      아이템 후기가 없습니다
+      아직 리뷰가 없습니다
     </li>
   </ItemReviewBlock>
 )
 };
 
-const BasketBlock = styled.button`
+const CartPutBlock = styled.button`
   position:fixed;
   bottom:0;
   width:100%;
@@ -104,33 +104,32 @@ const BasketBlock = styled.button`
   font-size:18px;
 `
 
-function Basket(){
-  return  <BasketBlock>장바구니 담기</BasketBlock>
+function CartPut(){
+  return  <CartPutBlock>장바구니 담기</CartPutBlock>
 }
 
 
 function ItemDetail(){
-  const [a,setA] = useState(true);
+  const [descript,setDescript] = useState(true);
   const Descript = () => {
-    setA(true)
+    setDescript(true)
   }
   const Reivew = () => {
-    setA(false)
+    setDescript(false)
   }
   return(
     <>
       <ItemPrice />
-      <ItemButtonBlock changeColor={a}>
+      <ItemButtonBlock changeColor={descript}>
         <button onClick={Descript} className="button_left">상품 설명</button>
         <button onClick={Reivew} className="button_right">상품 후기</button>
       </ItemButtonBlock>
       {
-        a === true
+        descript === true
         ? <ItemDescript />
         : <ItemReview />
       }
-      <Basket />
-      
+      <CartPut />
     </>
   )
 }
