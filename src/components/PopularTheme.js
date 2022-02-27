@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const PopularThemeBlock = styled.div`
-  margin-top:130px;
+  margin-top:100px;
   button{
     padding:1.5rem 1rem;
     font-size:1rem;
@@ -15,7 +15,7 @@ const PopularThemeBlock = styled.div`
     white-space: nowrap;
     font-weight:bold;
     &:first-child{
-      margin-left:40px;
+      margin-left:10px;
     }
   }
   padding-bottom:40px;
