@@ -49,11 +49,63 @@ const ItemButtonBlock = styled.div`
 function ItemPrice(){
   return(
     <ItemPriceBlock>
-      <img src={test} />
+      <img src={test} alt='아이템 이미지' />
       <h3>인증샷을 부르는 춘식이 유리컵</h3>
       <p>가격</p>
     </ItemPriceBlock>
   )
+}
+
+const ItemDescriptBlock = styled.div`
+  margin-bottom:75px;
+  img{
+    width:100%;
+    height:400px;
+  }
+`
+
+function ItemDescript(){
+  return(
+    <ItemDescriptBlock>
+      <img src={test} alt="아이템 상세설명 이미지로 대체" />
+    </ItemDescriptBlock>
+  )
+}
+
+const ItemReviewBlock = styled.ul`
+  padding:25px 25px 25px 0;
+  display:flex;
+  justify-content:center;
+  align-items;center;
+  li{
+    margin-bottom:16px;
+    padding:25px 8px;
+  }
+`
+
+function ItemReview(){
+return(
+  <ItemReviewBlock>
+    <li>
+      아이템 후기가 없습니다
+    </li>
+  </ItemReviewBlock>
+)
+};
+
+const BasketBlock = styled.button`
+  position:fixed;
+  bottom:0;
+  width:100%;
+  padding-top:25px;
+  padding-bottom:25px;
+  background:#24DBAF;
+  font-weight:700;
+  font-size:18px;
+`
+
+function Basket(){
+  return  <BasketBlock>장바구니 담기</BasketBlock>
 }
 
 
@@ -72,6 +124,12 @@ function ItemDetail(){
         <button onClick={Descript} className="button_left">상품 설명</button>
         <button onClick={Reivew} className="button_right">상품 후기</button>
       </ItemButtonBlock>
+      {
+        a === true
+        ? <ItemDescript />
+        : <ItemReview />
+      }
+      <Basket />
       
     </>
   )

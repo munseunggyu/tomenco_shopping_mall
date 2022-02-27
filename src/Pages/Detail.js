@@ -9,7 +9,7 @@ import ItemDetail from '../components/ItemDetail';
 function Detail(){
   return(
     <>
-      <MainHead />
+      <MainHead> 토멘코 쇼핑 </MainHead>
       <Goback />
       <ItemDetail />
     </>

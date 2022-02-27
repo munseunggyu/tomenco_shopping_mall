@@ -21,12 +21,12 @@ z-index:5;
   }
 `
 
-function MainHead(){
+function MainHead({children}){
   return(
     
       <MainHeadBlock>
         <Link to="/">
-          <button>토멘코 쇼핑</button>
+          <button>{children}</button>
         </Link>
       </MainHeadBlock>
    

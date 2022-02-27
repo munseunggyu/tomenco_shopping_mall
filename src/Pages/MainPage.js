@@ -7,7 +7,7 @@ import Goback from '../components/Goback';
 function MainPage(){
   return(
     <>
-      <MainHead />
+      <MainHead> 토멘코 쇼핑 </MainHead>
       <PopularTheme />
       <MainPageItems />
     </>
