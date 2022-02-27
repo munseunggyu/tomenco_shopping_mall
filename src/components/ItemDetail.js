@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled,{css} from 'styled-components';
+import styled from 'styled-components';
 import test from '../test.jpeg';
 
 const ItemPriceBlock = styled.div`
