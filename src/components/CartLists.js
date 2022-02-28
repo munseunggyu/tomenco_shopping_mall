@@ -3,6 +3,7 @@ import styled,{css} from 'styled-components';
 import test from '../test.jpeg';
 import { MdDone } from 'react-icons/md';
 import BottomBtn from './BottomBtn';
+import Dialog from './Dialog';
 
 const RemoveBtnBlock = styled.div`
   padding:0 10px;
@@ -153,13 +154,20 @@ const CartListsBlock = styled.div`
 `
 
 function CartLists(){
+  const [confirm,setConfirm] = useState(true);
+  const OnClick = () => setConfirm(false)
   return(
     <>
       <CartListsBlock>
         <CartList />
       </CartListsBlock>  
         <Price />
-        <BottomBtn>주문하기</BottomBtn>
+        <BottomBtn ><button onClick={OnClick}>주문하기</button></BottomBtn>
+        {
+          confirm === true
+          ? null
+          : <Dialog setConfirm={setConfirm} title="주문되었습니다."/>
+        }
     </>  
   )
 };
