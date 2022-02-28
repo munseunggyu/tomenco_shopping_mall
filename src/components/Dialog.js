@@ -15,7 +15,7 @@ const DarkBackground = styled.div`
 `;
 
 const DialogBlock = styled.div`
-  width: 200px;
+  width: 230px;
   heigh:150px;
   padding: 1.5rem;
   background: white;
@@ -30,6 +30,7 @@ const DialogBlock = styled.div`
   button{
     text-align:center;
     width:100%;
+    
   }
 `;
 

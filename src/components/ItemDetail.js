@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import test from '../test.jpeg';
 import BottomBtn from './BottomBtn';
+import Dialog from './Dialog';
 
 const ItemPriceBlock = styled.div`
   margin-top:70px;
@@ -20,8 +21,9 @@ const ItemPriceBlock = styled.div`
   p{
     margin-left:24px;
     color:rgba(0, 0, 0, 0.7);
-  }
-`;
+  }`
+
+
 const ItemButtonBlock = styled.div`
   border-top:1px solid #EEEEEE;
   border-bottom:1px solid #EEEEEE;
@@ -99,6 +101,8 @@ return(
 
 function ItemDetail(){
   const [descript,setDescript] = useState(true);
+  const [confirm,setConfirm] = useState(true);
+  const OnClick = () => setConfirm(false);
   const Descript = () => {
     setDescript(true)
   }
@@ -117,7 +121,12 @@ function ItemDetail(){
         ? <ItemDescript />
         : <ItemReview />
       }
-      <BottomBtn>장바구니 담기</BottomBtn>
+      <BottomBtn ><button onClick={OnClick}>장바구니 담기</button></BottomBtn>
+        {
+          confirm === true
+          ? null
+          : <Dialog setConfirm={setConfirm} title="장바구니에 상품이 담겼습니다."/>
+        }
     </>
   )
 }

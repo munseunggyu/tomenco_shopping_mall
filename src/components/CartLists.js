@@ -170,7 +170,7 @@ function CartLists(){
         }
     </>  
   )
-};
+}
 
 
 export default CartLists;
