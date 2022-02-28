@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import test from '../test.jpeg';
+import BottomBtn from './BottomBtn';
 
 const ItemPriceBlock = styled.div`
   margin-top:70px;
@@ -93,20 +94,7 @@ return(
 )
 };
 
-const CartPutBlock = styled.button`
-  position:fixed;
-  bottom:0;
-  width:100%;
-  padding-top:25px;
-  padding-bottom:25px;
-  background:#24DBAF;
-  font-weight:700;
-  font-size:18px;
-`
 
-function CartPut(){
-  return  <CartPutBlock>장바구니 담기</CartPutBlock>
-}
 
 
 function ItemDetail(){
@@ -129,7 +117,7 @@ function ItemDetail(){
         ? <ItemDescript />
         : <ItemReview />
       }
-      <CartPut />
+      <BottomBtn>장바구니 담기</BottomBtn>
     </>
   )
 }
