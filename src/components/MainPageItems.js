@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import test from '../test.jpeg'
-import {Link,useHistory,useParams} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 const MainPageItemBlock = styled.li`
   padding-top:43px;

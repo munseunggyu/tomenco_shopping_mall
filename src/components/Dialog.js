@@ -16,7 +16,7 @@ const DarkBackground = styled.div`
 
 const DialogBlock = styled.div`
   width: 230px;
-  heigh:150px;
+  height:150px;
   padding: 1.5rem;
   background: white;
   border-radius: 2px;
@@ -34,11 +34,6 @@ const DialogBlock = styled.div`
   }
 `;
 
-const ButtonGroup = styled.div`
-  margin-top: 3rem;
-  display: flex;
-  justify-content: flex-end;
-`;
 
 function Dialog({ title,setConfirm }) {
   

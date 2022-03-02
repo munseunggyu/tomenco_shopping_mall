@@ -20,7 +20,6 @@ const PopularThemeBlock = styled.div`
   }
   padding-bottom:40px;
   border-bottom:8px solid #EEEEEE;
-  
 `
 
 function PopularTheme(){
