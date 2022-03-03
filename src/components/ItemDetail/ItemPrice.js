@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import test from '../../test.jpeg';
 
 
 const ItemPriceBlock = styled.div`
@@ -8,8 +7,9 @@ margin-top:70px;
 margin-bottom:24px;
 img{
   width:100%;
-  height:420px;
+  height:380px;
   margin-bottom:24px;
+  padding:10px;
 }
 h3{
   margin-left:24px;
@@ -21,12 +21,13 @@ p{
   margin-left:24px;
   color:rgba(0, 0, 0, 0.7);
 }`
-function ItemPrice(){
+function ItemPrice({product}){
+  
   return(
     <ItemPriceBlock>
-      <img src={test} alt='아이템 이미지' />
-      <h3>인증샷을 부르는 춘식이 유리컵</h3>
-      <p>가격</p>
+      <img src={product.thumbnail} alt='상품 이미지' />
+      <h3>{product.name}</h3>
+      <p>{product.price}원</p>
     </ItemPriceBlock>
   )
 }

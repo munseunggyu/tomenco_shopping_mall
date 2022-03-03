@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import test from '../test.jpeg'
 import {useHistory} from 'react-router-dom';
 
 const MainPageItemBlock = styled.li`
@@ -26,7 +25,6 @@ const MainPageItemBlock = styled.li`
 
 function MainPageItem({product,id}){    // 아이디값을 받아와서 연결해준다
   const history = useHistory();
-
   return(
     <MainPageItemBlock>
         <img
@@ -41,7 +39,6 @@ function MainPageItem({product,id}){    // 아이디값을 받아와서 연결�
 }
 
 function MainPageItems({productsList,setProductsList,tagList,clickList}){
-  
   return (
     <ul>
     {

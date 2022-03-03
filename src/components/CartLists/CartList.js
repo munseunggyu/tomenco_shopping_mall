@@ -65,20 +65,29 @@ img{
 }
 `;
 
-function CartList(){
-const [done,setDone] = useState(false);
-const OnCheck = () => setDone(!done); 
+function CartList({basketItem,total,setTotal,onRemove}){
+  const [done,setDone] = useState(false);
+  const OnCheck = () => {
+    setDone(!done);
+    setTotal(
+      done === false
+      ? total + basketItem.price
+      : total - basketItem.price
+    )
+  }
 return(
 <>
   <RemoveBtnBlock>
-    <button>X</button>
+    <button onClick={()=> onRemove(basketItem.id)}>X</button>
   </RemoveBtnBlock>
-  <CartListBlock done={done} onClick={OnCheck}>
-    <div className='checkBoxBlock'>  <div className='checkBox' > {done && <MdDone />}</div> </div>
-    <img src={test} alt="장바구니 상품 이미지" />
+  <CartListBlock done={done} onClick={OnCheck} >
+    <div className='checkBoxBlock'> 
+      <button className='checkBox' > {done && <MdDone />}</button> 
+    </div>
+    <img src={basketItem.thumbnail} value="a" alt="장바구니 상품 이미지" />
     <div className='itemTP'>
-      <p className='itemTP__text'>상품 이름</p>
-      <p className='itemTP__price'>상품 가격</p>
+      <p className='itemTP__text'>{basketItem.name}</p>
+      <p className='itemTP__price'>{basketItem.price}</p>
     </div>
   </CartListBlock>
 

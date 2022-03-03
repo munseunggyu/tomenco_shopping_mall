@@ -6,14 +6,16 @@ const ItemDescriptBlock = styled.div`
   margin-bottom:75px;
   img{
     width:100%;
-    height:400px;
+    height:350px;
+    padding:10px;
   }
 `
 
-function ItemDescript(){
+function ItemDescript({product}){
   return(
     <ItemDescriptBlock>
-      <img src={test} alt="아이템 상세설명 이미지로 대체" />
+      <img src={product.detail1} alt="상품 설명이 없습니다" />
+      <img src={product.detail2} alt="상품 설명이 없습니다" />
     </ItemDescriptBlock>
   )
 }

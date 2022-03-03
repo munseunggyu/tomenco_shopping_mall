@@ -9,16 +9,7 @@ width:100%;
 background:white;
 z-index:4;
 
-.itemPrice{
-  display:flex;
-  margin-bottom:5px;
-  justify-content:space-between;
-  .text{
-    opacity:0.5;
-  }
-  .number{
-  }
-}
+
 .itemDelivery{
   display:flex;
   justify-content:space-between;
@@ -42,20 +33,16 @@ z-index:4;
 }
 `;
 
-function Price(){
+function Price({total}){
 return(
   <PriceBlock>
-    <div className='itemPrice'>
-      <div className='text'>상품금액</div>
-      <div className='number'>원</div>
-    </div>
     <div className='itemDelivery'>
       <div className='text'>배송비</div>
-      <div className='number'>원</div>
+      <div className='number'>무료</div>
     </div>
     <div className='total'>
       <div className='text'>총 주문금액</div>
-      <div className='number'>원</div>
+      <div className='number'>{total}원</div>
     </div>
   </PriceBlock>
 )

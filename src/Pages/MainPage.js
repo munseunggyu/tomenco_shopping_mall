@@ -6,15 +6,15 @@ import CartBtn from '../components/CartBtn';
 import themes from '../Data/sampleTheme';
 import products from '../Data/sampleProducts';
 
-function MainPage(){
+const MainPage = ({productsList,setProductsList}) =>{
   const [themesList,setThemesList] = useState(themes)
-  const [productsList,setProductsList] = useState(products)
   const [tagList,setTagList] = useState(products)
   const [clickList,setClickList] = useState(false)
   const ListChange = (e) =>{
     setClickList(true)
     setProductsList(tagList.filter(product => product.tag === e.target.value))
   }
+
   return(
     <>
       <MainHead> 토멘코 쇼핑 </MainHead>
@@ -24,7 +24,6 @@ function MainPage(){
       setThemesList = {setThemesList}
       ListChange={ListChange}
        />
-
       <MainPageItems 
       tagList={tagList} 
       productsList={productsList}

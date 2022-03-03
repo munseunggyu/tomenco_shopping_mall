@@ -4,12 +4,12 @@ import MainHead from '../components/MainHead';
 import CartLists from '../components/CartLists';
 
 
-function Cart(){
+function Cart({basket,setBasket}){
   return(
     <>
       <MainHead>장바구니</MainHead>
       <Goback />
-      <CartLists />
+      <CartLists basket={basket} setBasket={setBasket} />
     </>
   )
 }

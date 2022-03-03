@@ -23,11 +23,13 @@ const DialogBlock = styled.div`
   h3 {
     margin: 0;
     font-weight:700;
+    margin-top:10px;
     font-size: 1.2rem;
     margin-bottom:20px;
     text-align:center;
   }
   button{
+    margin-top:10px;
     text-align:center;
     width:100%;
     
