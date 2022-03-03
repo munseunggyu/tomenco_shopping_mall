@@ -24,7 +24,7 @@ const MainPageItemBlock = styled.li`
     }
 `;
 
-function MainPageItem({id}){    // 아이디값을 받아와서 연결해준다
+function MainPageItem({product,id}){    // 아이디값을 받아와서 연결해준다
   const history = useHistory();
 
   return(
@@ -33,25 +33,36 @@ function MainPageItem({id}){    // 아이디값을 받아와서 연결해준다
           onClick={()=>{
             history.push(`detail/${id}`); //해당 페이지로 보내준다
           }}
-        src={test} alt="img" /> 
-        <h3>인증샷을 부르는 춘식이 유리컵</h3>
-        <p>안정감있게 쌓을 수 있는 실용적인 
-          디자인에 귀여운 춘식이를 더한, 금주의 추천 선물이에요
-        </p>
+        src={product.thumbnail} alt="img" /> 
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
     </MainPageItemBlock>
   )
 }
 
-function MainPageItems(){
-  const MainItemList = [1,2,3,4]
+function MainPageItems({productsList,setProductsList,tagList,clickList}){
+  
   return (
     <ul>
     {
-      MainItemList.map((a,i) => {
+      clickList === true
+      ? productsList.map((product,i) => {
         return (
-          <MainPageItem key={i} id={a}   />
+          <MainPageItem 
+          key={product.id} 
+          id={product.id} 
+          product={product}   />
         )
-      })
+        })
+      : tagList.map((product,i) => {
+        return (
+          <MainPageItem 
+          key={product.id} 
+          id={product.id} 
+          product={product}   />
+        )
+        })
+      
     }
     </ul>
   )
