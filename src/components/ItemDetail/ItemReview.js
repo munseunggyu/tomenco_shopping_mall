@@ -37,7 +37,7 @@ return(
   <ItemReviewBlock>
     <li>
       <div className="li__block">
-        <img src={review.profileImg} />
+        <img src={review.profileImg} alt="사용자 프로필" />
         <div className="text">
           <div className="star" >
             {review.star}

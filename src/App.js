@@ -7,9 +7,9 @@ import Cart from './pages/Cart';
 import products from './Data/sampleProducts';
 
 function App() {
-  const [productsList,setProductsList] = useState(products)
-  const [basket,setBasket] = useState([])
-  const nextId = useRef(1);
+  const [productsList,setProductsList] = useState(products) //제품 데이터
+  const [basket,setBasket] = useState([])   //장바구니 리스트
+  const nextId = useRef(1);                 //장바구니 리스트 아이디값
   
   return (
     <div className="App">

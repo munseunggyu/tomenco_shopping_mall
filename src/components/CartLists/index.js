@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import styled,{css} from 'styled-components';
+import styled from 'styled-components';
 import BottomBtn from '../BottomBtn';
 import Dialog from '../Dialog';
 import Price from './Price';
 import CartList from './CartList';
-import products from '../../Data/sampleProducts';
 
 const CartListsBlock = styled.div`
   margin-top:100px;
@@ -16,11 +15,6 @@ function CartLists({basket,setBasket}){
   const [confirm,setConfirm] = useState(true);
   const OnClick = () => setConfirm(false)
   let [total,setTotal] = useState(0)
-  const onRemove = id => {
-    setBasket(basket.filter(product => product.id !== id));
-  };
-
-  
   
   return(
     <>
@@ -33,7 +27,8 @@ function CartLists({basket,setBasket}){
             basketItem={basketItem}
             total={total}
             setTotal={setTotal}
-            onRemove={onRemove}
+            setBasket={setBasket}
+            basket={basket}
             />
             )
           })

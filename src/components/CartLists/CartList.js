@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import styled,{css} from 'styled-components';
 import { MdDone } from 'react-icons/md';
-import test from '../../test.jpeg';
 
 const RemoveBtnBlock = styled.div`
   padding:0 10px;
@@ -65,7 +64,7 @@ img{
 }
 `;
 
-function CartList({basketItem,total,setTotal,onRemove}){
+function CartList({basketItem,total,setTotal,setBasket,basket}){
   const [done,setDone] = useState(false);
   const OnCheck = () => {
     setDone(!done);
@@ -74,7 +73,15 @@ function CartList({basketItem,total,setTotal,onRemove}){
       ? total + basketItem.price
       : total - basketItem.price
     )
+    console.log(done)
   }
+  const onRemove = id => {
+    setBasket(basket.filter(product => product.id !== id));
+    const removePrice = basket.filter(product => product.id === id)
+    done === true
+    ? setTotal(total - removePrice[0].price)
+    : setTotal(total) 
+  };
 return(
 <>
   <RemoveBtnBlock>
