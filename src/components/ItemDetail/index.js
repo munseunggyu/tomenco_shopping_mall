@@ -32,6 +32,7 @@ const NoReview = styled.div`
   text-align:center;
   padding-top:100px;
   opacity: 0.8; 
+  padding-bottom:150px;
 `
 
 function ItemDetail({productsList,basket,setBasket,nextId,reviewList,setReviewList}){

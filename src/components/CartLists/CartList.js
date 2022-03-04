@@ -73,7 +73,6 @@ function CartList({basketItem,total,setTotal,setBasket,basket}){
       ? total + basketItem.price
       : total - basketItem.price
     )
-    console.log(done)
   }
   const onRemove = id => {
     setBasket(basket.filter(product => product.id !== id));
