@@ -2,21 +2,54 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ItemReviewBlock = styled.ul`
-  padding:25px 25px 25px 0;
-  display:flex;
-  justify-content:center;
-  align-items: center;
+  padding-top:30px;
+  padding-left:30px;
   li{
-    margin-bottom:16px;
-    padding:25px 8px;
+    .li__block{
+      display:flex;
+      padding-bottom:20px;
+      img{
+        width:50px;
+        height:50px;
+        border-radius:20px;
+          }
+      .text{
+        padding-left:10px;
+        .star{
+          padding-bottom:15px;
+        }
+        .name{
+          opacity: 0.8;
+          font-size:16px;
+        }
+      }
+      p{
+        font-size:18px;
+      }
+    }
+    
+    
   }
 `
 
-function ItemReview(){
+function ItemReview({review}){
 return(
   <ItemReviewBlock>
     <li>
-      sd
+      <div className="li__block">
+        <img src={review.profileImg} />
+        <div className="text">
+          <div className="star" >
+            {review.star}
+          </div>
+          <div className="name">
+            {review.name} | {review.day}
+          </div>
+        </div>
+      </div>
+      <p>
+        {review.text}
+      </p>
     </li>
   </ItemReviewBlock>
   );

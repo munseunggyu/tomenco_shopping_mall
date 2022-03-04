@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, {  useState } from 'react';
 import styled from 'styled-components';
 import BottomBtn from '../BottomBtn';
 import Dialog from '../Dialog';
@@ -28,12 +28,19 @@ const ItemButtonBlock = styled.div`
       return changeColor ? `background:#EEEEEE;` : `background:white;`
     }}
   }`
+const NoReview = styled.div`
+  text-align:center;
+  padding-top:100px;
+  opacity: 0.8; 
+`
 
-function ItemDetail({productsList,basket,setBasket,nextId}){
+function ItemDetail({productsList,basket,setBasket,nextId,reviewList,setReviewList}){
   const {id} = useParams();
-  let product = productsList.find((item) => {return item.id == id})
+  const product = productsList.find((item) => {return item.id == id});
+  const [detailReview,setDetailReivew] = useState([])
   const [descript,setDescript] = useState(true);
   const [confirm,setConfirm] = useState(true);
+
   const OnConfirm = () => {
     const cartItem = {
       id: nextId.current,
@@ -50,7 +57,9 @@ function ItemDetail({productsList,basket,setBasket,nextId}){
   }
   const Reivew = () => {
     setDescript(false)
+    setDetailReivew(reviewList.filter(review => review.productName === product.name))
   }
+  
   return(
     <>
       <ItemPrice product={product} />
@@ -61,7 +70,9 @@ function ItemDetail({productsList,basket,setBasket,nextId}){
       {
         descript === true
         ? <ItemDescript product={product}/>
-        : <ItemReview />
+        : detailReview.length !== 0
+          ? detailReview.map(review => <ItemReview key={review.id} review={review} />)
+          : <NoReview>아직 리뷰가 없습니다</NoReview>
       }
       <BottomBtn ><button onClick={OnConfirm}>장바구니 담기</button></BottomBtn>
         {
