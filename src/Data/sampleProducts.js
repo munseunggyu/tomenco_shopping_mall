@@ -25,7 +25,7 @@ const products = [
     "name": "인증샷을 부르는 춘식이 와인잔",
     "description": "안정감있게 쌓을 수 있는 실용적인 디자인에\n귀여운 춘식이를 더한 , 금주의 추천 선물이에요",
     "price": 10000,
-    "tag": "나를 위한 선물",
+    "tag": "선물 추천",
     "thumbnail": "https://cdn.pixabay.com/photo/2014/11/22/18/38/wine-541922__340.jpg",
     "detail1": "https://cdn.pixabay.com/photo/2016/07/26/16/16/wine-1543170__480.jpg",
     "detail2": "https://cdn.pixabay.com/photo/2018/01/12/09/45/glass-3077869__340.jpg"

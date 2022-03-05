@@ -7,7 +7,7 @@ const themes = [
     },
     {
       "id": 2,
-      "name": "나를 위한 선물",
+      "name": "선물 추천",
       "thumbnail": "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_1280.jpg"
     },
     {
