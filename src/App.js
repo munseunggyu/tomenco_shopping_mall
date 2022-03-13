@@ -9,7 +9,6 @@ import axios from 'axios';
 
 function App() {
  
-  const [basket,setBasket] = useState([])   //장바구니 리스트
   const [productsList,setProductsList] = useState() //제품 데이터
   useEffect(()=> {
     axios.get('https://497d51fd-a677-44f2-8ba7-1563e862914d.mock.pstmn.io/products')
@@ -28,10 +27,10 @@ function App() {
           <MainPage productsList={productsList} setProductsList={setProductsList} />
         </Route>
         <Route path='/detail/:id'>
-          <Detail productsList={productsList} basket={basket} setBasket={setBasket}  />
+          <Detail productsList={productsList}  />
         </Route>
         <Route path='/cart'>
-          <Cart basket={basket} setBasket={setBasket} productsList={productsList} />
+          <Cart productsList={productsList} />
         </Route>
       </Switch>
     </div>

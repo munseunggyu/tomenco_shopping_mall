@@ -11,7 +11,7 @@ const CartListsBlock = styled.div`
 `
 
 
-function CartLists({basket,setBasket,productsList}){
+function CartLists({productsList}){
   const [confirm,setConfirm] = useState(true);
   const OnClick = () => setConfirm(false)
   let [total,setTotal] = useState(0)

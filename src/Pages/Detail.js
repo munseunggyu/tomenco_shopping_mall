@@ -6,7 +6,7 @@ import ItemDetail from '../components/ItemDetail';
 import CartBtn from '../components/CartBtn';
 import review from '../Data/sampleReview';
 
-function Detail({productsList,basket,setBasket,nextId}){
+function Detail({productsList,nextId}){
   const [reviewList,setReviewList] = useState([])
   useEffect(()=> {
     axios.get('https://497d51fd-a677-44f2-8ba7-1563e862914d.mock.pstmn.io/reviews')
@@ -24,8 +24,6 @@ function Detail({productsList,basket,setBasket,nextId}){
       <CartBtn />
       <ItemDetail 
       productsList={productsList}
-      basket={basket} 
-      setBasket={setBasket}
       nextId={nextId}
       reviewList={reviewList}
       setReviewList={setReviewList}  />

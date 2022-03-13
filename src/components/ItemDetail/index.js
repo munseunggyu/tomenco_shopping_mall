@@ -35,7 +35,7 @@ const NoReview = styled.div`
   padding-bottom:150px;
 `
 
-function ItemDetail({productsList,basket,setBasket,reviewList,setReviewList}){
+function ItemDetail({productsList,reviewList,setReviewList}){
   const {id} = useParams();
   const product = productsList.find((item) => {return item.id === +id});
   const [detailReview,setDetailReivew] = useState([])
