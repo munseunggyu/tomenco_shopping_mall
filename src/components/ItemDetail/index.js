@@ -35,7 +35,7 @@ const NoReview = styled.div`
   padding-bottom:150px;
 `
 
-function ItemDetail({productsList,basket,setBasket,nextId,reviewList,setReviewList}){
+function ItemDetail({productsList,basket,setBasket,reviewList,setReviewList}){
   const {id} = useParams();
   const product = productsList.find((item) => {return item.id === +id});
   const [detailReview,setDetailReivew] = useState([])
@@ -43,14 +43,18 @@ function ItemDetail({productsList,basket,setBasket,nextId,reviewList,setReviewLi
   const [confirm,setConfirm] = useState(true);
 
   const OnConfirm = () => {
-    const cartItem = {
-      id: nextId.current,
-      name: product.name,
-      price: product.price,
-      thumbnail: product.thumbnail
-    }
-    setBasket(basket.concat(cartItem))
-    nextId.current += 1;
+    let basketLocal = localStorage.getItem('basket')
+    
+    if( basketLocal === null ){ basketLocal = []}
+    else{basketLocal = JSON.parse(basketLocal)} 
+    basketLocal.push({
+      id:Math.random(),
+      productId: id,
+      productName: product.name,
+      productThumbnail: product.thumbnail,
+      productPrice:product.price
+    })
+    localStorage.setItem('basket', JSON.stringify(basketLocal) );
     setConfirm(false)
   }
   const Descript = () => {

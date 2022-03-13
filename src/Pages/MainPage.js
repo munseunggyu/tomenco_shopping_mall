@@ -8,6 +8,7 @@ import themes from '../Data/sampleTheme';
 import products from '../Data/sampleProducts';
 
 const MainPage = ({productsList,setProductsList}) =>{
+  
   const [themesList,setThemesList] = useState([])
   const [tagList,setTagList] = useState(products)
   const [clickList,setClickList] = useState(false)
@@ -19,7 +20,6 @@ const MainPage = ({productsList,setProductsList}) =>{
     axios.get('https://497d51fd-a677-44f2-8ba7-1563e862914d.mock.pstmn.io/themes')
       .then(response => {
         setThemesList(response.data)
-        console.log(response.data)
       })
       .catch((error) => {
         console.log(error)

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import test from '../../test.jpeg';
 
 const ItemDescriptBlock = styled.div`
   margin-bottom:75px;

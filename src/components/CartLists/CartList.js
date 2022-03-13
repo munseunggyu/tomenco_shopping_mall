@@ -63,40 +63,45 @@ img{
   }
 }
 `;
-
-function CartList({basketItem,total,setTotal,setBasket,basket}){
+function CartList({total,setTotal,basketId,basketLocal}){
   const [done,setDone] = useState(false);
   const OnCheck = () => {
     setDone(!done);
     setTotal(
       done === false
-      ? total + basketItem.price
-      : total - basketItem.price
+      ? total + basketId.productPrice
+      : total - basketId.productPrice
     )
   }
+
+  
   const onRemove = id => {
-    setBasket(basket.filter(product => product.id !== id));
-    const removePrice = basket.filter(product => product.id === id)
+    basketLocal = basketLocal.filter(local => local.id !== basketId.id);
+    let preLocal = localStorage.getItem('basket')
+    preLocal = JSON.parse(preLocal)
+    if(basketLocal !== preLocal){
+      localStorage.setItem('basket', JSON.stringify(basketLocal) );
+    }
     done === true
-    ? setTotal(total - removePrice[0].price)
+    ? setTotal(total - basketId.productPrice)
     : setTotal(total) 
   };
+
 return(
 <>
   <RemoveBtnBlock>
-    <button onClick={()=> onRemove(basketItem.id)}>X</button>
+    <button onClick={(id)=> onRemove(id)}>X</button>
   </RemoveBtnBlock>
   <CartListBlock done={done} onClick={OnCheck} >
     <div className='checkBoxBlock'> 
       <button className='checkBox' > {done && <MdDone />}</button> 
     </div>
-    <img src={basketItem.thumbnail} value="a" alt="장바구니 상품 이미지" />
+    <img src={basketId.productThumbnail} value="a" alt="장바구니 상품 이미지" />
     <div className='itemTP'>
-      <p className='itemTP__text'>{basketItem.name}</p>
-      <p className='itemTP__price'>{basketItem.price}</p>
+      <p className='itemTP__text'>{basketId.productName}</p>
+      <p className='itemTP__price'>{basketId.productPrice}</p>
     </div>
   </CartListBlock>
-
 </>
 );
 }

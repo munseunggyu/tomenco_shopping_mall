@@ -11,25 +11,27 @@ const CartListsBlock = styled.div`
 `
 
 
-function CartLists({basket,setBasket}){
+function CartLists({basket,setBasket,productsList}){
   const [confirm,setConfirm] = useState(true);
   const OnClick = () => setConfirm(false)
   let [total,setTotal] = useState(0)
+  let basketLocal = localStorage.getItem('basket')
+  basketLocal = JSON.parse(basketLocal)
   
   return(
     <>
       <CartListsBlock>
         {
-          basket.map((basketItem,i) => {
-            return( 
-            <CartList 
-            key={basketItem.id}
-            basketItem={basketItem}
-            total={total}
-            setTotal={setTotal}
-            setBasket={setBasket}
-            basket={basket}
-            />
+          basketLocal.map((basketId,i) => {
+            return(
+              <CartList 
+              key={basketId.id}
+              productsList={productsList}
+              total={total}
+              setTotal={setTotal}
+              basketId={basketId}
+              basketLocal={basketLocal}
+              />
             )
           })
         }
