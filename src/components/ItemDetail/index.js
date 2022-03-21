@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BottomBtn from '../BottomBtn';
 import Dialog from '../Dialog';
@@ -6,6 +6,7 @@ import ItemPrice from './ItemPrice';
 import ItemDescript from './ItemDescript';
 import ItemReview from './ItemReview';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ItemButtonBlock = styled.div`
   border-top:1px solid #EEEEEE;
@@ -37,11 +38,20 @@ const NoReview = styled.div`
 
 function ItemDetail({productsList,reviewList,setReviewList}){
   const {id} = useParams();
-  const product = productsList.find((item) => {return item.id === +id});
+  const [product,setProduct] = useState([])
   const [detailReview,setDetailReivew] = useState([])
   const [descript,setDescript] = useState(true);
   const [confirm,setConfirm] = useState(true);
-
+  useEffect(()=> {
+    axios.get(`https://497d51fd-a677-44f2-8ba7-1563e862914d.mock.pstmn.io/products/${id}`)
+      .then(response => {
+        setProduct(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  },[])
+  
   const OnConfirm = () => {
     let basketLocal = localStorage.getItem('basket')
     
@@ -67,11 +77,11 @@ function ItemDetail({productsList,reviewList,setReviewList}){
   
   return(
     <>
-      <ItemPrice product={product} />
+      <ItemPrice product={product} /> 
       <ItemButtonBlock changeColor={descript}>
         <button onClick={Descript} className="button_left">상품 설명</button>
         <button onClick={Reivew} className="button_right">상품 후기</button>
-      </ItemButtonBlock>
+      </ItemButtonBlock> 
       {
         descript === true
         ? <ItemDescript product={product}/>
