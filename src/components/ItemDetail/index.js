@@ -43,7 +43,7 @@ function ItemDetail({productsList,reviewList,setReviewList}){
   const [descript,setDescript] = useState(true);
   const [confirm,setConfirm] = useState(true);
   useEffect(()=> {
-    axios.get(`https://497d51fd-a677-44f2-8ba7-1563e862914d.mock.pstmn.io/products/${id}`)
+    axios.get(`${process.env.REACT_APP_API_KEY}/products/${id}`)
       .then(response => {
         setProduct(response.data)
       })

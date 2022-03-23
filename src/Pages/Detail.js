@@ -10,7 +10,7 @@ function Detail({productsList,nextId}){
   const [reviewList,setReviewList] = useState([])
   const [loding,setLoding] =useState(true)
   useEffect(()=> {
-    axios.get('https://497d51fd-a677-44f2-8ba7-1563e862914d.mock.pstmn.io/reviews')
+    axios.get(`${process.env.REACT_APP_API_KEY}/reviews`)
       .then(response => {
         setReviewList(response.data)
         setLoding(false)

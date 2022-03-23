@@ -15,7 +15,7 @@ const MainPage = () =>{
   const [productsList,setProductsList] = useState([]) //제품 데이터
   const [loding,setLoding] = useState(true)
   useEffect(()=> {
-    axios.get('https://497d51fd-a677-44f2-8ba7-1563e862914d.mock.pstmn.io/products')
+    axios.get(`${process.env.REACT_APP_API_KEY}/products`)
       .then(response => {
         setProductsList(response.data)
         setTagList(response.data)
@@ -25,7 +25,7 @@ const MainPage = () =>{
       })
   },[])
   useEffect(()=> {
-    axios.get('https://497d51fd-a677-44f2-8ba7-1563e862914d.mock.pstmn.io/themes')
+    axios.get(`${process.env.REACT_APP_API_KEY}/themes`)
       .then(response => {
         setThemesList(response.data)
         setLoding(false)

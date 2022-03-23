@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import styled,{css} from 'styled-components';
 import { MdDone } from 'react-icons/md';
 
@@ -63,7 +63,7 @@ img{
   }
 }
 `;
-function CartList({total,setTotal,basketId,basketLocal}){
+function CartList({total,setTotal,basketId,basketLocal,setBasketLocal}){
   const [done,setDone] = useState(false);
   const OnCheck = () => {
     setDone(!done);
@@ -73,12 +73,9 @@ function CartList({total,setTotal,basketId,basketLocal}){
       : total - basketId.productPrice
     )
   }
-
-  
+  let [preLocal,setPreLocal] = useState([])
   const onRemove = id => {
-    basketLocal = basketLocal.filter(local => local.id !== basketId.id);
-    let preLocal = localStorage.getItem('basket')
-    preLocal = JSON.parse(preLocal)
+    basketLocal = basketLocal.filter(local => local.id !== basketId.id)
     if(basketLocal !== preLocal){
       localStorage.setItem('basket', JSON.stringify(basketLocal) );
     }
@@ -86,7 +83,11 @@ function CartList({total,setTotal,basketId,basketLocal}){
     ? setTotal(total - basketId.productPrice)
     : setTotal(total) 
   };
-
+  
+  useEffect(()=> {
+    setPreLocal(JSON.parse(localStorage.getItem('basket')))
+  },[])
+  
 return(
 <>
   <RemoveBtnBlock>

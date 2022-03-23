@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styled from 'styled-components';
 import BottomBtn from '../BottomBtn';
 import Dialog from '../Dialog';
@@ -15,9 +15,8 @@ function CartLists({productsList}){
   const [confirm,setConfirm] = useState(true);
   const OnClick = () => setConfirm(false)
   let [total,setTotal] = useState(0)
-  let basketLocal = localStorage.getItem('basket')
-  basketLocal = JSON.parse(basketLocal)
-  
+  let basketLocal = JSON.parse(localStorage.getItem('basket'))
+
   return(
     <>
       <CartListsBlock>
