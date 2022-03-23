@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import MainHead from '../components/MainHead';
+import MainHead from '../components/common/MainHead';
 import PopularTheme from '../components/PopularTheme';
 import MainPageItems from '../components/MainPageItems';
-import CartBtn from '../components/CartBtn';
+import CartBtn from '../components/common/CartBtn';
 import themes from '../Data/sampleTheme';
 import products from '../Data/sampleProducts';
-import Spinner from '../components/Spinner';
+import Spinner from '../components/common/Spinner';
 
 const MainPage = () =>{
   const [themesList,setThemesList] = useState([])

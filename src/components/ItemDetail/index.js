@@ -1,7 +1,7 @@
 import React, {  useEffect, useState } from 'react';
 import styled from 'styled-components';
-import BottomBtn from '../BottomBtn';
-import Dialog from '../Dialog';
+import BottomBtn from '../common/BottomBtn';
+import Dialog from '../common/Dialog';
 import ItemPrice from './ItemPrice';
 import ItemDescript from './ItemDescript';
 import ItemReview from './ItemReview';

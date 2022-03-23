@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import MainHead from '../components/MainHead';
-import Goback from '../components/Goback';
+import MainHead from '../components/common/MainHead';
+import Goback from '../components/common/Goback';
 import ItemDetail from '../components/ItemDetail';
-import CartBtn from '../components/CartBtn';
+import CartBtn from '../components/common/CartBtn';
 import review from '../Data/sampleReview';
-import Spinner from '../components/Spinner';
+import Spinner from '../components/common/Spinner';
 function Detail({productsList,nextId}){
   const [reviewList,setReviewList] = useState([])
   const [loding,setLoding] =useState(true)

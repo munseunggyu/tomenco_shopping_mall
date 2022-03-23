@@ -1,6 +1,6 @@
 import React from 'react';
-import Goback from '../components/Goback';
-import MainHead from '../components/MainHead';
+import Goback from '../components/common/Goback';
+import MainHead from '../components/common/MainHead';
 import CartLists from '../components/CartLists';
 
 
