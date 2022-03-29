@@ -1,11 +1,9 @@
-import React,{useState,useRef, useEffect} from 'react';
+import React from 'react';
 import './main.css';
 import MainPage from './pages/MainPage';
 import { Route,Switch} from 'react-router-dom';
 import Detail from './pages/Detail';
 import Cart from './pages/Cart';
-import products from './Data/sampleProducts';
-import axios from 'axios';
 
 function App() {
   return (
@@ -21,6 +19,9 @@ function App() {
           <Cart />
         </Route>
       </Switch>
+      <div id="noMobile">
+        <span>no mobile</span>
+      </div>
     </div>
   );
 }
