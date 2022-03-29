@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tomenco_shopping_mall/static/css/main.aa607808.css",
-    "main.js": "/tomenco_shopping_mall/static/js/main.93145e6b.js",
+    "main.css": "/tomenco_shopping_mall/static/css/main.6319734f.css",
+    "main.js": "/tomenco_shopping_mall/static/js/main.3a9ba695.js",
     "index.html": "/tomenco_shopping_mall/index.html",
-    "main.aa607808.css.map": "/tomenco_shopping_mall/static/css/main.aa607808.css.map",
-    "main.93145e6b.js.map": "/tomenco_shopping_mall/static/js/main.93145e6b.js.map"
+    "main.6319734f.css.map": "/tomenco_shopping_mall/static/css/main.6319734f.css.map",
+    "main.3a9ba695.js.map": "/tomenco_shopping_mall/static/js/main.3a9ba695.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa607808.css",
-    "static/js/main.93145e6b.js"
+    "static/css/main.6319734f.css",
+    "static/js/main.3a9ba695.js"
   ]
 }
