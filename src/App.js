@@ -20,7 +20,7 @@ function App() {
         </Route>
       </Switch>
       <div id="noMobile">
-        <span>no mobile</span>
+        <span>Your screen is too big</span>
       </div>
     </div>
   );

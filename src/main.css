@@ -3,14 +3,17 @@
 #noMobile{
   position: absolute;
   z-index: 99;
-  height: 100vh;
-  background-color: blue;
+  height: 2000px;
   width: 100vw;
+  background-color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
   font-size: 32px;
+  font-weight: 700;
   top: 0;
+}
+#noMobile span{
+  margin-top: 50vh;
 }
 @media screen and (max-width: 645px) {
   #noMobile {
