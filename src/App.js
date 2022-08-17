@@ -1,9 +1,9 @@
 import React from 'react';
 import './main.css';
-import MainPage from './pages/MainPage';
+import MainPage from './Pages/MainPage';
 import { Route,Switch} from 'react-router-dom';
-import Detail from './pages/Detail';
-import Cart from './pages/Cart';
+import Detail from './Pages/Detail';
+import Cart from './Pages/Cart';
 
 function App() {
   return (
