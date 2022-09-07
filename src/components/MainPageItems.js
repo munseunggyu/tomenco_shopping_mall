@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useHistory} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const MainPageItemBlock = styled.li`
   padding-top:43px;
@@ -24,12 +24,12 @@ const MainPageItemBlock = styled.li`
 `;
 
 function MainPageItem({product,id}){    // 아이디값을 받아와서 연결해준다
-  const history = useHistory();
+  const navigate = useNavigate()
   return(
     <MainPageItemBlock>
         <img
           onClick={()=>{
-            history.push(`detail/${id}`); //해당 페이지로 보내준다
+           navigate(`detail/${id}`); //해당 페이지로 보내준다
           }}
         src={product.thumbnail} alt="img" /> 
         <h3>{product.name}</h3>

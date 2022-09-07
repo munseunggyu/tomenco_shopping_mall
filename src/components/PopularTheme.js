@@ -38,9 +38,16 @@ function PopularTheme({themesList,setThemesList,ListChange}){
       > 
       {
         themesList.map((a,i) => {
-          return <SwiperSlide  key={a.id}>
-             <PopularThemeBtn onClick={ListChange} bgImg={a.thumbnail} value={a.name} > #{a.name} </PopularThemeBtn>
-              </SwiperSlide>
+          return (
+          <SwiperSlide  key={a.id}>
+            <PopularThemeBtn
+              onClick={ListChange}
+              bgImg={a.thumbnail}
+              value={a.name} 
+              > 
+                #{a.name}
+            </PopularThemeBtn>
+              </SwiperSlide>)
         })
       }
       </Swiper>

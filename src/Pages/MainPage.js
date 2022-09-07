@@ -31,7 +31,6 @@ const MainPage = () =>{
     setThemesList(themes)
     setLoding(false)
   },[])
-  console.log(themesList,productsList)
 
   useEffect(()=> {
     axios.get(`${api}/themes`)
@@ -48,25 +47,26 @@ const MainPage = () =>{
     setClickList(true)
     setProductsList(tagList.filter(product => product.tag === e.target.value))
   }
+
   return(
    <>
-          {loding ? <Spinner /> :(
-            <>
-            <MainHead> 토멘코 쇼핑 </MainHead>
-            <CartBtn />
-            <PopularTheme 
-            themesList={themesList} 
-            setThemesList = {setThemesList}
-            ListChange={ListChange}
-            />
-            <MainPageItems 
-            tagList={tagList} 
-            productsList={productsList}
-            setProductsList={setProductsList}
-            clickList={clickList}
-            />
-            </>
-          )}  
+    {loding ? <Spinner /> :(
+      <>
+      <MainHead> 토멘코 쇼핑 </MainHead>
+      <CartBtn />
+      <PopularTheme 
+      themesList={themesList} 
+      setThemesList = {setThemesList}
+      ListChange={ListChange}
+      />
+      <MainPageItems 
+      tagList={tagList} 
+      productsList={productsList}
+      setProductsList={setProductsList}
+      clickList={clickList}
+      />
+      </>
+    )}  
     </> 
   )
 }

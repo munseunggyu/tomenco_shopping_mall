@@ -1,5 +1,5 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -13,10 +13,10 @@ const GobackBlock = styled.button`
 `
 
 function Goback(){
-const history = useHistory();
+const navigate = useNavigate();
 
   return(
-    <GobackBlock onClick={()=>{history.goBack()}}> 
+    <GobackBlock onClick={()=>{navigate(-1)}}> 
       <IoIosArrowBack size='20' />
      </GobackBlock>  
   )

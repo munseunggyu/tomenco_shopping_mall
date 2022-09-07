@@ -8,6 +8,7 @@ import ItemReview from './ItemReview';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import products from '../../Data/sampleProducts';
+import { api } from '../../Data/api';
 
 const ItemButtonBlock = styled.div`
   border-top:1px solid #EEEEEE;
@@ -39,33 +40,21 @@ const NoReview = styled.div`
 
 function ItemDetail({reviewList,setReviewList}){
   const {id} = useParams();
-  const [prodcutsList,setProductsList] = useState(products)
+  const [productList,setProductsList] = useState(products)
   const [product,setProduct] = useState([])
   const [detailReview,setDetailReivew] = useState([])
   const [descript,setDescript] = useState(true);
   const [confirm,setConfirm] = useState(true);
-  // useEffect(()=> {
-  //   axios.get(`${process.env.REACT_APP_API_KEY}/products/${id}`)
-  //     .then(response => {
-  //       setProduct(response.data)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  // },[])
-  // useEffect(()=>{
-  //   product(prv => {
-  //     return {
-  //       prodcutsList.filter(item => item.id === id)
-  //     }
-  //   })
-  // })
-  useEffect(() => {
-    setProduct(prev => {
-      const copyProductsList = prodcutsList.filter(item => item.id === +id)
-      return copyProductsList[0]
-    })
+  useEffect(()=> {
+    axios.get(`${api}/products/${id}`)
+      .then(response => {
+        setProduct(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   },[])
+
   
   
   const OnConfirm = () => {

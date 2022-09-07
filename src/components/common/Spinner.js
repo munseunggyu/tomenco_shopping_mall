@@ -28,6 +28,7 @@ function Spinner(){
     <SpinnerBlock>
      <CgSpinner className='spinner' size='50'></CgSpinner>
     </SpinnerBlock>
+
   )
 }
 
