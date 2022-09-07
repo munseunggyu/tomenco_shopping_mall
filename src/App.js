@@ -6,6 +6,7 @@ import Detail from './Pages/Detail';
 import Cart from './Pages/Cart';
 
 function App() {
+console.log(process.env.REACT_APP_API_KEY)
   return (
     <div className="App">
       <Switch>
@@ -19,9 +20,9 @@ function App() {
           <Cart />
         </Route>
       </Switch>
-      <div id="noMobile">
+      {/* <div id="noMobile">
         <span>Your screen is too big</span>
-      </div>
+      </div> */}
     </div>
   );
 }

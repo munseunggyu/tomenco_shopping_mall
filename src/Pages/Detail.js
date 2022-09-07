@@ -6,11 +6,14 @@ import ItemDetail from '../components/ItemDetail';
 import CartBtn from '../components/common/CartBtn';
 import review from '../Data/sampleReview';
 import Spinner from '../components/common/Spinner';
+import reviews from '../Data/sampleReview';
+import { api } from '../Data/api';
 function Detail({productsList,nextId}){
   const [reviewList,setReviewList] = useState([])
   const [loding,setLoding] =useState(true)
+
   useEffect(()=> {
-    axios.get(`${process.env.REACT_APP_API_KEY}/reviews`)
+    axios.get(`${api}/reviews`)
       .then(response => {
         setReviewList(response.data)
         setLoding(false)
@@ -19,10 +22,14 @@ function Detail({productsList,nextId}){
         console.log(error)
       })
   },[])
+  useEffect(() => {
+    setReviewList(reviews)
+  },[])
   return(
     <>
     { loding ? <Spinner /> 
-   :( <>
+   :( 
+   <>
       <MainHead> 토멘코 쇼핑 </MainHead>
       <Goback />
       <CartBtn />
@@ -31,7 +38,8 @@ function Detail({productsList,nextId}){
       nextId={nextId}
       reviewList={reviewList}
       setReviewList={setReviewList}  />
-     </>)}
+     </>
+     )}
     </>
   )
 }

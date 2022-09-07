@@ -7,6 +7,7 @@ import CartBtn from '../components/common/CartBtn';
 import themes from '../Data/sampleTheme';
 import products from '../Data/sampleProducts';
 import Spinner from '../components/common/Spinner';
+import { api } from '../Data/api';
 
 const MainPage = () =>{
   const [themesList,setThemesList] = useState([])
@@ -15,7 +16,7 @@ const MainPage = () =>{
   const [productsList,setProductsList] = useState([]) //제품 데이터
   const [loding,setLoding] = useState(true)
   useEffect(()=> {
-    axios.get(`${process.env.REACT_APP_API_KEY}/products`)
+    axios.get(`${api}/products`)
       .then(response => {
         setProductsList(response.data)
         setTagList(response.data)
@@ -25,7 +26,15 @@ const MainPage = () =>{
       })
   },[])
   useEffect(()=> {
-    axios.get(`${process.env.REACT_APP_API_KEY}/themes`)
+    setProductsList(products)
+    setTagList(productsList)
+    setThemesList(themes)
+    setLoding(false)
+  },[])
+  console.log(themesList,productsList)
+
+  useEffect(()=> {
+    axios.get(`${api}/themes`)
       .then(response => {
         setThemesList(response.data)
         setLoding(false)
@@ -57,7 +66,7 @@ const MainPage = () =>{
             clickList={clickList}
             />
             </>
-          )} 
+          )}  
     </> 
   )
 }

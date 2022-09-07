@@ -7,6 +7,7 @@ import ItemDescript from './ItemDescript';
 import ItemReview from './ItemReview';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import products from '../../Data/sampleProducts';
 
 const ItemButtonBlock = styled.div`
   border-top:1px solid #EEEEEE;
@@ -36,21 +37,36 @@ const NoReview = styled.div`
   padding-bottom:150px;
 `
 
-function ItemDetail({productsList,reviewList,setReviewList}){
+function ItemDetail({reviewList,setReviewList}){
   const {id} = useParams();
+  const [prodcutsList,setProductsList] = useState(products)
   const [product,setProduct] = useState([])
   const [detailReview,setDetailReivew] = useState([])
   const [descript,setDescript] = useState(true);
   const [confirm,setConfirm] = useState(true);
-  useEffect(()=> {
-    axios.get(`${process.env.REACT_APP_API_KEY}/products/${id}`)
-      .then(response => {
-        setProduct(response.data)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+  // useEffect(()=> {
+  //   axios.get(`${process.env.REACT_APP_API_KEY}/products/${id}`)
+  //     .then(response => {
+  //       setProduct(response.data)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // },[])
+  // useEffect(()=>{
+  //   product(prv => {
+  //     return {
+  //       prodcutsList.filter(item => item.id === id)
+  //     }
+  //   })
+  // })
+  useEffect(() => {
+    setProduct(prev => {
+      const copyProductsList = prodcutsList.filter(item => item.id === +id)
+      return copyProductsList[0]
+    })
   },[])
+  
   
   const OnConfirm = () => {
     let basketLocal = localStorage.getItem('basket')

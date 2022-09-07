@@ -1,4 +1,4 @@
-const review = [
+const reviews = [
   {
     "id": 1,
     "star": 5,
@@ -19,4 +19,4 @@ const review = [
   }
 ]
 
-export default review;
+export default reviews;
