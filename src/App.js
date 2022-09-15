@@ -6,12 +6,11 @@ import Detail from './Pages/Detail';
 import Cart from './Pages/Cart';
 
 function App() {
-  console.log('hi')
+  console.log(process.env.REACT_APP_API)
   return (
     <div className="App">
       <Routes>
         <Route path='/*' element={<MainPage  />}>
-
         </Route> 
         <Route path='/detail/:id' element={<Detail  />} />
         <Route path='/cart' element={<Cart />} />

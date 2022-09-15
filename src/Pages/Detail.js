@@ -4,16 +4,14 @@ import MainHead from '../components/common/MainHead';
 import Goback from '../components/common/Goback';
 import ItemDetail from '../components/ItemDetail';
 import CartBtn from '../components/common/CartBtn';
-import review from '../Data/sampleReview';
 import Spinner from '../components/common/Spinner';
 import reviews from '../Data/sampleReview';
-import { api } from '../Data/api';
 function Detail({productsList,nextId}){
   const [reviewList,setReviewList] = useState([])
   const [loding,setLoding] =useState(true)
 
   useEffect(()=> {
-    axios.get(`${api}/reviews`)
+    axios.get(`${process.env.REACT_APP_API}/reviews`)
       .then(response => {
         setReviewList(response.data)
         setLoding(false)

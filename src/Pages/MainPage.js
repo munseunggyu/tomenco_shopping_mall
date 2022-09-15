@@ -4,10 +4,7 @@ import MainHead from '../components/common/MainHead';
 import PopularTheme from '../components/PopularTheme';
 import MainPageItems from '../components/MainPageItems';
 import CartBtn from '../components/common/CartBtn';
-import themes from '../Data/sampleTheme';
-import products from '../Data/sampleProducts';
 import Spinner from '../components/common/Spinner';
-import { api } from '../Data/api';
 
 const MainPage = () =>{
   const [themesList,setThemesList] = useState([])
@@ -16,7 +13,7 @@ const MainPage = () =>{
   const [productsList,setProductsList] = useState([]) //제품 데이터
   const [loding,setLoding] = useState(true)
   useEffect(()=> {
-    axios.get(`${api}/products`)
+    axios.get(`${process.env.REACT_APP_API}/products`)
       .then(response => {
         setProductsList(response.data)
         setTagList(response.data)
@@ -25,15 +22,9 @@ const MainPage = () =>{
         console.log(error)
       })
   },[])
-  useEffect(()=> {
-    setProductsList(products)
-    setTagList(productsList)
-    setThemesList(themes)
-    setLoding(false)
-  },[])
 
   useEffect(()=> {
-    axios.get(`${api}/themes`)
+    axios.get(`${process.env.REACT_APP_API}/themes`)
       .then(response => {
         setThemesList(response.data)
         setLoding(false)
@@ -53,18 +44,23 @@ const MainPage = () =>{
     {loding ? <Spinner /> :(
       <>
       <MainHead> 토멘코 쇼핑 </MainHead>
+      
       <CartBtn />
+   
       <PopularTheme 
       themesList={themesList} 
       setThemesList = {setThemesList}
       ListChange={ListChange}
       />
-      <MainPageItems 
-      tagList={tagList} 
-      productsList={productsList}
-      setProductsList={setProductsList}
-      clickList={clickList}
-      />
+      <main>
+        <h2 className='ir'> 상품 리스트 </h2>
+        <MainPageItems 
+        tagList={tagList} 
+        productsList={productsList}
+        setProductsList={setProductsList}
+        clickList={clickList}
+        />
+      </main>
       </>
     )}  
     </> 

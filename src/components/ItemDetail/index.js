@@ -8,7 +8,6 @@ import ItemReview from './ItemReview';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import products from '../../Data/sampleProducts';
-import { api } from '../../Data/api';
 
 const ItemButtonBlock = styled.div`
   border-top:1px solid #EEEEEE;
@@ -46,7 +45,7 @@ function ItemDetail({reviewList,setReviewList}){
   const [descript,setDescript] = useState(true);
   const [confirm,setConfirm] = useState(true);
   useEffect(()=> {
-    axios.get(`${api}/products/${id}`)
+    axios.get(`${process.env.REACT_APP_API}/products/${id}`)
       .then(response => {
         setProduct(response.data)
       })
